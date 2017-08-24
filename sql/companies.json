@@ -1,0 +1,15 @@
+{ 
+    "_id" : ObjectId("599ee8ef2af2733a08fd7b8d"), 
+    "CompanyName" : "阿里巴巴", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599ee8f42af2733a08fd7b8e"), 
+    "CompanyName" : "百度", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599ee8fa2af2733a08fd7b8f"), 
+    "CompanyName" : "腾讯", 
+    "__v" : NumberInt(0)
+}

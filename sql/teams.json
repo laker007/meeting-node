@@ -1,0 +1,72 @@
+{ 
+    "_id" : ObjectId("599f0c500355654829be5bea"), 
+    "TeamName" : "阿里巴巴前端团队1", 
+    "DepartmentID" : "599efd40a7a77d41bf4e461e", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0c570355654829be5beb"), 
+    "TeamName" : "阿里巴巴前端团队2", 
+    "DepartmentID" : "599efd40a7a77d41bf4e461e", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0c760355654829be5bec"), 
+    "TeamName" : "阿里巴巴后端团队1", 
+    "DepartmentID" : "599efd6ea7a77d41bf4e461f", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0c7a0355654829be5bed"), 
+    "TeamName" : "阿里巴巴后端团队2", 
+    "DepartmentID" : "599efd6ea7a77d41bf4e461f", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0ca00355654829be5bee"), 
+    "TeamName" : "百度前端团队1", 
+    "DepartmentID" : "599efde5a7a77d41bf4e4620", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0ca30355654829be5bef"), 
+    "TeamName" : "百度前端团队2", 
+    "DepartmentID" : "599efde5a7a77d41bf4e4620", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0ccf0355654829be5bf0"), 
+    "TeamName" : "百度后端团队1", 
+    "DepartmentID" : "599efdeea7a77d41bf4e4621", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0cd10355654829be5bf1"), 
+    "TeamName" : "百度后端团队2", 
+    "DepartmentID" : "599efdeea7a77d41bf4e4621", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0ceb0355654829be5bf2"), 
+    "TeamName" : "腾讯前端团队1", 
+    "DepartmentID" : "599efe0ca7a77d41bf4e4622", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0cef0355654829be5bf3"), 
+    "TeamName" : "腾讯前端团队2", 
+    "DepartmentID" : "599efe0ca7a77d41bf4e4622", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0d0d0355654829be5bf4"), 
+    "TeamName" : "腾讯后端团队1", 
+    "DepartmentID" : "599efe10a7a77d41bf4e4623", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("599f0d0f0355654829be5bf5"), 
+    "TeamName" : "腾讯后端团队2", 
+    "DepartmentID" : "599efe10a7a77d41bf4e4623", 
+    "__v" : NumberInt(0)
+}

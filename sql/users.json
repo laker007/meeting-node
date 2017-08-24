@@ -1,0 +1,15 @@
+{ 
+    "_id" : ObjectId("59872b4c8d5bca471f67f7b9"), 
+    "name" : "laker", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("59872b648d5bca471f67f7ba"), 
+    "name" : "logo", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("59872b738d5bca471f67f7bb"), 
+    "name" : "hwang", 
+    "__v" : NumberInt(0)
+}
