@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var DepartmentSchema = new Schema({
-    CompanyID: String, // mongodb 自动生成
+    CompanyID: String, // 公司名称
     DepartmentName: String, // 部门名字
 })
 
