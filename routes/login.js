@@ -12,7 +12,8 @@ router.post('/', function (req, res, next) {
     var js_code = req.body.js_code;
     var encryptedData = req.body.encryptedData;
     var iv = req.body.iv;
-    var exchange, result;
+    var exchange; // 从微信服务器上交换回来的 openid 和 session_key
+    var result;
     var _res = res;
 
     console.log(js_code)
@@ -42,12 +43,14 @@ router.post('/', function (req, res, next) {
                     if (users) {
                         // 此用户已经注册，可进行预约
                         result = {
-                            'register': true
+                            'register': true,
+                            'openid': exchange.openid,
                         };
                     } else {
                         // 此用户尚未注册，让用户进行注册操作
                         result = {
-                            'register': false
+                            'register': false,
+                            'openid': exchange.openid,
                         };
                     }
 
@@ -55,8 +58,8 @@ router.post('/', function (req, res, next) {
                 })
             })
             .on('end', function () {
-                // Todo: result 不应该传到前端去
-                // console.log('111111'+result);
+                // Todo: exchange 不应该传到前端去
+                // console.log(exchange);
                 // _res.json(exchange);
             })
     });
