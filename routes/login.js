@@ -34,13 +34,14 @@ router.post('/', function (req, res, next) {
                 exchange = JSON.parse(buf.toString());
 
                 User.findOne({
-                    openid: exchange.openid,
-                }, function (err, users) {
+                    OpenID: exchange.openid,
+                }, function (err, user) {
                     if (err) {
                         console.log(err);
                     }
+                    console.log(user);
 
-                    if (users) {
+                    if (user) {
                         // 此用户已经注册，可进行预约
                         result = {
                             'register': true,
