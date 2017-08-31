@@ -13,36 +13,31 @@ router.get('/', function (req, res, next) {
         TeamName: null,
     };
 
-    console.log('get userinfo ' + req.query.OpenID);
     User.findOne({
         OpenID: req.query.OpenID
     }, function (err, user) {
         if (err) throw err;
 
+        _user.OpenID = req.query.OpenID;
         // 查找公司
         Company.findOne({
             _id: user.CompanyID
         }, function (err, company) {
-            console.log(company);
-            // _user.CompanyName = company.CompanyName
+            _user.CompanyName = company.CompanyName;
+            // 查找部门
+            Department.findOne({
+                _id: user.DepartmentID
+            }, function (err, department) {
+                _user.DepartmentName = department.DepartmentName;
+                // 查找团队
+                Team.findOne({
+                    _id: user.TeamID
+                }, function (err, team) {
+                    _user.TeamName = team.TeamName;
+                    res.json(_user);
+                })
+            })
         })
-        // 查找部门
-        Department.findOne({
-            _id: user.DepartmentID
-        }, function (err, department) {
-            console.log(department);
-            // _user.DepartmentName = department.DepartmentName;
-        })
-        // 查找团队
-        Team.findOne({
-            _id: user.TeamID
-        }, function (err, team) {
-            console.log(team);
-            // _user.TeamName = team.TeamName;
-        })
-
-        res.json(_user);
-
     })
 })
 

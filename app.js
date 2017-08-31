@@ -9,6 +9,7 @@ var login = require('./routes/login');
 var register = require('./routes/register');
 var reserve = require('./routes/reserve');
 var userinfo = require('./routes/userinfo');
+var meeting_room = require('./routes/meeting_room');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -32,6 +33,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/login', login);
+app.use('/api/v1/meeting_room', meeting_room);
 app.use('/api/v1/register', register);
 app.use('/api/v1/reserve', reserve);
 app.use('/api/v1/userinfo', userinfo);

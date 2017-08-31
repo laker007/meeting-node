@@ -7,8 +7,6 @@ var User = require('../models/user.model');
 
 // api/v1/register
 router.post('/', function (req, res, next) {
-    console.log('post register');
-    console.log(req.body);
 
     var user = new User();
     user.CompanyID = req.body.CompanyID;
@@ -18,9 +16,7 @@ router.post('/', function (req, res, next) {
     user.OpenID = req.body.OpenID;
 
     user.save(function (err) {
-        if (err) {
-            console.log(err);
-        }
+        if (err) throw err;
 
         res.json({
             message: 'user created!',
@@ -35,9 +31,7 @@ router.post('/', function (req, res, next) {
 router.get('/company', function (req, res, next) {
     console.log('get company');
     Company.find(function (err, companys) {
-        if (err) {
-            console.log(err);
-        }
+        if (err) throw err;
 
         res.json(companys);
     })
@@ -47,13 +41,10 @@ router.get('/company', function (req, res, next) {
  * 新增公司
  */
 router.post('/company', function (req, res, next) {
-    console.log('post company');
     var company = new Company();
     company.CompanyName = req.body.CompanyName;
     company.save(function (err) {
-        if (err) {
-            res.send(err);
-        }
+        if (err) throw err;
 
         res.json({
             message: 'company created!'
@@ -66,15 +57,11 @@ router.post('/company', function (req, res, next) {
  * 获取部门
  */
 router.get('/department', function (req, res, next) {
-    console.log('get department');
-    console.log(req.query.CompanyID);
 
     Department.find({
         CompanyID: req.query.CompanyID,
     }, function (err, departments) {
-        if (err) {
-            console.log(err)
-        }
+        if (err) throw err;
         res.json(departments)
     })
 })
@@ -102,16 +89,10 @@ router.post('/department', function (req, res, next) {
  * 获取团队
  */
 router.get('/team', function (req, res, next) {
-    console.log('get department');
-    console.log(req.query.DepartmentID);
-
     Team.find({
-        // CompanyID: req.query.CompanyID,
         DepartmentID: req.query.DepartmentID,
     }, function (err, teams) {
-        if (err) {
-            console.log(err)
-        }
+        if (err) throw err;
         res.json(teams)
     })
 })
@@ -125,9 +106,7 @@ router.post('/team', function (req, res, next) {
     team.TeamName = req.body.TeamName;
 
     team.save(function (err) {
-        if (err) {
-            console.log(err);
-        }
+        if (err) throw err;
 
         res.json({
             message: 'team created!'

@@ -13,10 +13,9 @@ router.get('/', function (req, res, next) {
     Meeting.find({
         OpenID: req.query.OpenID,
     }, function (err, meetings) {
-        if (err) {
-            console.log(err)
-        }
+        if (err) throw err;
 
+        // 将会议室名字传到前端，在数据库设计时，未把会议室名称同时记录在会议预定记录中。
         res.json(meetings)
     })
 })
@@ -30,6 +29,7 @@ router.post('/', function (req, res, next) {
     meeting.OpenID = req.body.OpenID;
     meeting.Topic = req.body.Topic;
     meeting.MeetingRoom = req.body.MeetingRoom;
+    meeting.MeetingRoomName = req.body.MeetingRoomName;
     meeting.Date = req.body.Date;
     meeting.BeginTime = req.body.BeginTime;
     meeting.EndTime = req.body.EndTime;
@@ -62,43 +62,6 @@ router.delete('/', function (req, res, next) {
         })
     })
 
-})
-
-/**
- * 获取会议室
- */
-router.get('/meeting_room', function (req, res, next) {
-    console.log(req.query.OpenID);
-
-    User.findOne({
-        OpenID: req.query.OpenID
-    }, function (err, user) {
-        MeetingRoom.find({
-            CompanyID: user.CompanyID
-        }, function (err, meeting_rooms) {
-            res.json(meeting_rooms)
-        })
-    })
-})
-
-/**
- * 新增会议室
- */
-router.post('/meeting_room', function (req, res, next) {
-    var meeting_room = new MeetingRoom();
-
-    meeting_room.CompanyID = req.body.CompanyID;
-    meeting_room.MeetingRoomName = req.body.MeetingRoomName;
-
-    meeting_room.save(function (err) {
-        if (err) {
-            console.log(err);
-        }
-
-        res.json({
-            message: 'meeting_room created!',
-        })
-    })
 })
 
 module.exports = router;
