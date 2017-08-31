@@ -10,14 +10,28 @@ var Meeting = require('../models/meeting.model');
 router.get('/', function (req, res, next) {
     console.log(req.query);
 
-    Meeting.find({
-        OpenID: req.query.OpenID,
-    }, function (err, meetings) {
-        if (err) throw err;
+    // 按照预定人来查找会议记录
+    if (req.query.OpenID) {
+        Meeting.find({
+            OpenID: req.query.OpenID,
+        }, function (err, meetings) {
+            if (err) throw err;
 
-        // 将会议室名字传到前端，在数据库设计时，未把会议室名称同时记录在会议预定记录中。
-        res.json(meetings)
-    })
+            res.json(meetings)
+        })
+    }
+
+    // 按照会议室来查找会议记录
+    if (req.query.MeetingRoom) {
+        Meeting.find({
+            MeetingRoom: req.query.MeetingRoom,
+        }, function (err, meetings) {
+            if (err) throw err;
+
+            res.json(meetings)
+        })
+    }
+
 })
 
 /**
@@ -33,6 +47,7 @@ router.post('/', function (req, res, next) {
     meeting.Date = req.body.Date;
     meeting.BeginTime = req.body.BeginTime;
     meeting.EndTime = req.body.EndTime;
+    meeting.Host = req.body.Host;
     meeting.Contact = req.body.Contact;
 
     meeting.save(function (err) {

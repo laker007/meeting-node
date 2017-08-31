@@ -9,6 +9,7 @@ var MeeingSchema = new Schema({
     Date: String, // 预定年月日
     BeginTime: String, // 开始时间
     EndTime: String, // 结束时间
+    Host: String, // 预约人
     Contact: Number, //联系方式
     Participants: Array, //参会人员
 });
